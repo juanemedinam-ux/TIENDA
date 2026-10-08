@@ -187,5 +187,19 @@ public class Tienda {
 
         return resultado;
     }
+    public ArrayList<Cliente> obtenerClientesQueCompraronEl7DeOctubre() {
 
+        ArrayList<Cliente> listaClientesCompraron = new ArrayList<>();
+
+        LocalDate fechaBuscada = LocalDate.of(2026, 10, 7);
+
+        for (Factura factura : listaFacturas) {
+
+            if (factura.fecha().equals(fechaBuscada)) {
+                listaClientesCompraron.add(factura.cliente());
+            }
+        }
+
+        return listaClientesCompraron;
+    }
 }
