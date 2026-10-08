@@ -2,6 +2,7 @@ package model;
 
 
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -55,5 +56,16 @@ public class Cliente {
 
     public Tienda getOwnedByTienda() {
         return ownedByTienda;
+    }
+    public boolean isCompraEnFecha(LocalDate fechaConsulta) {
+
+        for (Factura factura : listaFacturas) {
+
+            if (factura.fecha().isEqual(fechaConsulta)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
