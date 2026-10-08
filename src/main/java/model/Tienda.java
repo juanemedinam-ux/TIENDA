@@ -122,5 +122,19 @@ public class Tienda {
     public Optional<Factura> obtenerFactura(String codigo) {
         return listaFacturas.stream().filter(f -> f.codigo().equals(codigo)).findFirst();
     }
+    public List<Producto> obtenerMayoresDiez() {
+
+        List<Producto> productosAdecuado = new ArrayList<>();
+
+        for (Producto productosBuenos : listaProductos.values()) {
+
+            if (productosBuenos.getCantidadDisponible() >= 10) {
+
+                productosAdecuado.add(productosBuenos);
+            }
+        }
+
+        return productosAdecuado;
+    }
 }
 
