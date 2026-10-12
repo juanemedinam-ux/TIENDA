@@ -31,22 +31,27 @@ public class Cliente {
     }
 
     public String getDocumentoIdentidad() {
+
         return documentoIdentidad;
     }
 
     public String getNombreCompleto() {
+
         return nombreCompleto;
     }
 
     public String getTelefono() {
+
         return telefono;
     }
 
     public String getCorreo() {
+
         return correo;
     }
 
     public String getCiudadResidencia() {
+
         return ciudadResidencia;
     }
 
@@ -67,5 +72,8 @@ public class Cliente {
         }
 
         return false;
+    }
+    public boolean verificarNombreConR() {
+        return nombreCompleto.startsWith("R");
     }
 }

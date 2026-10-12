@@ -40,15 +40,7 @@ public class Tienda {
     }
 
 
-    //-------------------CRUD CLIENTE---------------------------------------------------------------------------
 
-
-    /**
-     * Este metodo permite registrar un cliente
-     *
-     * @param cliente
-     * @return
-     */
     public String registrarCliente(Cliente cliente) {
 
         Cliente clienteEncontrado = buscarCliente1(cliente.getDocumentoIdentidad());
@@ -88,13 +80,6 @@ public class Tienda {
     }
 
 
-    /**
-     * Esta forma de hacer una busqueda se llama imperativo
-     * significa que usted ve el cómo hace las cosas
-     *
-     * @param documentoIdentidad
-     * @return
-     */
     public Optional<Cliente> buscarCliente2(String documentoIdentidad) {
 
         for (Cliente cliente : listaClientes) {
@@ -108,18 +93,7 @@ public class Tienda {
     }
 
 
-    // imperativa y declarativa (estudiarlo)
 
-
-    /**
-     * mama.hacerArrozConPollo();
-     *
-     * Declarativo: significa que usted declara lo que quiere hacer,
-     * osea el Qué?
-     *
-     * @param documentoIdentidad
-     * @return
-     */
     public Optional<Cliente> buscarCliente3(String documentoIdentidad) {
 
         return listaClientes.stream()
@@ -128,9 +102,6 @@ public class Tienda {
                 .findFirst();
     }
 
-
-    // Cambiar if(clienteEncontrado == null){ por un Optional
-    // hacer el metodo buscar cliente usando un optional
 
 
     public Factura buscarFactura(String codigo) {
@@ -170,8 +141,6 @@ public class Tienda {
     }
 
 
-  //Codigoss de productos agotados
-
     public ArrayList<String> obtenerCodigosProductosAgotados2(int limiteInferior, int limiteSuperior) {
 
         ArrayList<String> resultado = new ArrayList<>();
@@ -201,5 +170,29 @@ public class Tienda {
         }
 
         return resultado;
+    }
+    public ArrayList<Factura> obtenerFacturasClientesNombreR() {
+
+        ArrayList<Factura> resultado = new ArrayList<>();
+
+        for (Factura factura : listaFacturas) {
+
+            if (factura.cliente().getNombreCompleto().startsWith("R")) {
+                resultado.add(factura);
+            }
+        }
+
+        return resultado;
+    }
+    public ArrayList<Factura> obtenerFacturasClienteConR(){
+        ArrayList<Factura> resultado = new ArrayList<>();
+
+        for (Factura factura : listaFacturas){
+            if(factura.tieneClienteConR()){
+                resultado.add(factura);
+            }
+        }
+        return resultado;
+
     }
 }
