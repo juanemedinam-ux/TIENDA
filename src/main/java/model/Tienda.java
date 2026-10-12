@@ -263,4 +263,21 @@ public class Tienda {
 
         return resultado;
     }
+    public Optional<Producto> obtenerProductoPrecioMasAlto() {
+        if (listaProductos.isEmpty()) {
+            return Optional.empty();
+        }
+
+        Producto productoMayor = null;
+
+        for (Producto producto : listaProductos.values()) {
+            if (productoMayor == null) {
+                productoMayor = producto;
+            } else if (producto.getValor() > productoMayor.getValor()) {
+                productoMayor = producto;
+            }
+        }
+
+        return Optional.of(productoMayor);
+    }
 }
