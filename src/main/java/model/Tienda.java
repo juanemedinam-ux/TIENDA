@@ -195,4 +195,18 @@ public class Tienda {
         return resultado;
 
     }
+    public ArrayList<Factura> obtenerFacturasIphone16ProMax() {
+        ArrayList<Factura> resultado = new ArrayList<>();
+
+        for (Factura factura : listaFacturas) {
+            for (DetalleFactura detalle : factura.listaDetallesFactura()) {
+                if (detalle.getProducto().getNombre().equalsIgnoreCase("iPhone 16 Pro Max")) {
+                    resultado.add(factura);
+                    break;
+                }
+            }
+        }
+
+        return resultado;
+    }
 }
