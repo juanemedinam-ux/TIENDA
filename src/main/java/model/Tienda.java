@@ -240,4 +240,27 @@ public class Tienda {
 
         return resultado;
     }
+    public ArrayList<Producto> obtenerProductosPorRangoPrecio(
+            double precioMinimo, double precioMaximo) {
+
+        ArrayList<Producto> resultado = new ArrayList<>();
+
+        for (Producto producto : listaProductos.values()) {
+            if (producto.getValor() >= precioMinimo
+                    && producto.getValor() <= precioMaximo) {
+                resultado.add(producto);
+            }
+        }
+
+        return resultado;
+    }
+    public ArrayList<Producto> obtenerProductosOrdenadosPorPrecio() {
+        ArrayList<Producto> resultado =
+                new ArrayList<>(listaProductos.values());
+
+        resultado.sort((producto1, producto2) ->Double.compare(producto1.getValor(),
+                producto2.getValor()));
+
+        return resultado;
+    }
 }
