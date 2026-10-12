@@ -209,4 +209,35 @@ public class Tienda {
 
         return resultado;
     }
+    public ArrayList<Factura> obtenerFacturasJuanIphone16ProMax() {
+        ArrayList<Factura> resultado = new ArrayList<>();
+
+        for (Factura factura : listaFacturas) {
+            if (factura.cliente().getNombreCompleto()
+                    .toLowerCase().contains("juan")) {
+
+                for (DetalleFactura detalle : factura.listaDetallesFactura()) {
+                    if (detalle.getProducto().getNombre()
+                            .equalsIgnoreCase("iPhone 16 Pro Max")) {
+                        resultado.add(factura);
+                        break;
+                    }
+                }
+            }
+        }
+
+        return resultado;
+    }
+
+    public ArrayList<Producto> obtenerProductosPorCategoria(Categoria categoria) {
+        ArrayList<Producto> resultado = new ArrayList<>();
+
+        for (Producto producto : listaProductos.values()) {
+            if (producto.getCategoria() == categoria) {
+                resultado.add(producto);
+            }
+        }
+
+        return resultado;
+    }
 }
